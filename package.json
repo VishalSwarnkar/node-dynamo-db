@@ -1,0 +1,22 @@
+{
+  "name": "node-dynamo-db",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "create-table" : "node db_data/createTable.js",
+    "load-data" : "node db_data/loadCarData.js",
+    "read-data" : "node db_data/readDataTest.js",
+    "clear-db" : "node db_data/deleteDB.js",
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.394.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0",
+    "serve-favicon": "^2.5.0"
+  }
+}

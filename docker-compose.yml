@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  node-application:
+    depends_on:
+      - dynamo
+    environment:
+      - aws_access_key_id=aws_access_key_id
+      - aws_secret_access_key=aws_secret_access_key
+    container_name: dynamodb-node
+    hostname: orders
+    links:
+      - dynamo
+    image: node
+    volumes:
+      - '.:/app'
+    working_dir: '/app'
+    restart: always
+    ports:
+      - "3030:3030"
+    command: npm start
+  dynamo:
+    image: amazon/dynamodb-local
+    hostname: dynamo
+    container_name: dynamodb-database
+    restart: always
+    ports:
+      - "8000:8000"
